@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Panel - Nevon Music Distribution</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo">Nevon Music</div>
+            <ul>
+                <li><a href="index.html">Início</a></li>
+                <li><a href="dashboard.html">Dashboard</a></li>
+                <li><a href="admin.html">Admin</a></li>
+                <li><button id="logout-button" class="btn secondary">Sair</button></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="container admin-main">
+        <h1>Painel de Administração</h1>
+
+        <section class="admin-section">
+            <h2>Gestão de Músicas</h2>
+            <table id="admin-music-table">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Artista</th>
+                        <th>Título</th>
+                        <th>Status</th>
+                        <th>Ações</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- Músicas pendentes serão carregadas aqui via JavaScript -->
+                </tbody>
+            </table>
+            <p id="no-pending-music-message" style="display: none;">Não há músicas pendentes para revisão.</p>
+        </section>
+
+        <section class="admin-section">
+            <h2>Gestão de Artistas</h2>
+            <table id="admin-artists-table">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Email</th>
+                        <th>Plano</th>
+                        <th>Ações</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- Artistas serão carregados aqui via JavaScript -->
+                </tbody>
+            </table>
+        </section>
+
+        <section class="admin-section">
+            <h2>Estatísticas da Plataforma</h2>
+            <div class="stats-grid">
+                <div class="stat-box">
+                    <h3>Total de Artistas</h3>
+                    <p id="total-artists">0</p>
+                </div>
+                <div class="stat-box">
+                    <h3>Total de Músicas</h3>
+                    <p id="total-music">0</p>
+                </div>
+                <div class="stat-box">
+                    <h3>Músicas Aprovadas</h3>
+                    <p id="approved-music">0</p>
+                </div>
+                <div class="stat-box">
+                    <h3>Ganhos da Plataforma</h3>
+                    <p id="platform-earnings">0.00 USD</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 Nevon Music Distribution. Todos os direitos reservados.</p>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="supabase.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
