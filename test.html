@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<h2>TESTE SUPABASE</h2>
+
+<button id="btn">Testar conexão</button>
+
+<script type="module">
+import { supabase } from "./supabase.js";
+
+document.getElementById("btn").onclick = async () => {
+
+const { data, error } = await supabase.auth.signInWithPassword({
+email: "teste@teste.com",
+password: "123456"
+});
+
+console.log(data);
+console.log(error);
+
+alert(error ? error.message : "Supabase OK");
+
+};
+</script>
+
+</body>
+</html>
