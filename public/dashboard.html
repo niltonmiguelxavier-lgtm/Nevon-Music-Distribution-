@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard - Nevon Music Distribution</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo">Nevon Music</div>
+            <ul>
+                <li><a href="index.html">Início</a></li>
+                <li><a href="dashboard.html">Dashboard</a></li>
+                <li><a href="admin.html">Admin</a></li>
+                <li><button id="logout-button" class="btn secondary">Sair</button></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="container dashboard-main">
+        <h1>Bem-vindo ao seu Dashboard, Artista!</h1>
+
+        <section class="dashboard-section user-info">
+            <h2>O Meu Plano</h2>
+            <p>Plano Atual: <span id="current-plan">Free</span></p>
+            <p>Músicas Restantes este Mês: <span id="music-uploads-remaining">3</span></p>
+            <p>Royalties: <span id="royalty-percentage">70%</span></p>
+            <button class="btn primary">Atualizar Plano</button>
+        </section>
+
+        <section class="dashboard-section stats-wallet">
+            <div class="stat-box">
+                <h3>Total de Streams</h3>
+                <p id="total-streams">0</p>
+            </div>
+            <div class="stat-box">
+                <h3>Ganhos Totais</h3>
+                <p id="total-earnings">0.00 USD</p>
+            </div>
+            <div class="stat-box">
+                <h3>Carteira</h3>
+                <p id="artist-wallet">0.00 USD</p>
+                <button class="btn secondary">Levantar Fundos</button>
+            </div>
+        </section>
+
+        <section class="dashboard-section upload-music">
+            <h2>Upload de Música</h2>
+            <form id="upload-music-form">
+                <div class="form-group">
+                    <label for="music-title">Nome da Música</label>
+                    <input type="text" id="music-title" placeholder="Título da sua música" required>
+                </div>
+                <div class="form-group">
+                    <label for="music-file">Ficheiro de Música (MP3/WAV)</label>
+                    <input type="file" id="music-file" accept=".mp3,.wav" required>
+                </div>
+                <div class="form-group">
+                    <label for="cover-art">Capa do Álbum (Imagem)</label>
+                    <input type="file" id="cover-art" accept="image/*" required>
+                </div>
+                <button type="submit">Carregar Música</button>
+                <p class="error-message" id="upload-error"></p>
+            </form>
+        </section>
+
+        <section class="dashboard-section my-music">
+            <h2>As Minhas Músicas</h2>
+            <table id="music-list-table">
+                <thead>
+                    <tr>
+                        <th>Capa</th>
+                        <th>Título</th>
+                        <th>Status</th>
+                        <th>Streams</th>
+                        <th>Ganhos</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- Músicas serão carregadas aqui via JavaScript -->
+                </tbody>
+            </table>
+            <p id="no-music-message" style="display: none;">Ainda não carregou nenhuma música.</p>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 Nevon Music Distribution. Todos os direitos reservados.</p>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="supabase.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
