@@ -1,0 +1,32 @@
+<h2>Registo de Artista</h2>
+
+<input id="email" placeholder="Email">
+<input id="password" type="password" placeholder="Password">
+
+<button onclick="register()">Criar Conta</button>
+
+<p id="msg"></p>
+
+<script type="module">
+import { supabase } from "./supabase.js";
+
+window.register = async function () {
+
+const email = document.getElementById("email").value;
+const password = document.getElementById("password").value;
+
+const { data, error } = await supabase.auth.signUp({
+email,
+password
+});
+
+if(error){
+document.getElementById("msg").innerText = error.message;
+return;
+}
+
+document.getElementById("msg").innerText =
+"Conta criada com sucesso! Confirma o email.";
+
+};
+</script>
